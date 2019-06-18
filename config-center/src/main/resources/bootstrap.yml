@@ -2,27 +2,30 @@ spring:
   application:
     name: config-center
   profiles:
-    active: native
+    active: git  #指定环境/git或者native，必须与下面的匹配，可以使用git，那么下面必须要有名称为git的配置项
   cloud:
     config:
       server:
-        native:
-          searchLocations: classpath:/configs/{profile}
-#          searchLocations: file:/d:/configs/{profile}
-#        git:
-#          uri: https://gitee.com/zhang.w/cloud-service-configs.git
-#          default-label: master
-#          force-pull: true
-#          searchPaths: '{profile}'
+#        native:
+#          searchLocations: classpath:/configs/{profile}
+##          searchLocations: file:/d:/configs/{profile}
+        git:
+          uri: https://gitee.com/zhang.w/cloud-service-configs.git
+          username: 285917033@qq.com
+          password: zghweb123
+          default-label: master
+          force-pull: true
+          searchPaths: '{profile}' 
+          #basedir: E:\Java_IDEA\config\basedir  # 可以使用这个配置项来指定本地git仓库的路径
 server:
-  port: 0
+  port: 0 #端口号为0表示随机端口，为了配置中心HA，所以经常会把配置中心启动多个服务，避免单点故障问
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://local.register.com:8761/eureka/
     registry-fetch-interval-seconds: 5
   instance:
-    lease-expiration-duration-in-seconds: 15
+    lease-expiration-duration-in-seconds: 15 
     lease-renewal-interval-in-seconds: 5
     prefer-ip-address: true
-    instance-id: ${spring.application.name}:${random.int}
+    instance-id: ${spring.application.name}:${random.int} #随机端口

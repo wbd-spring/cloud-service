@@ -8,6 +8,7 @@
   <artifactId>config-center</artifactId>
   
   <dependencies>
+  <!-- 引入配置中心jar，对应不同的环境， 启用不同的配置文件 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-server</artifactId>

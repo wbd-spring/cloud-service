@@ -13,8 +13,10 @@
 		</dependency>
 	</dependencies>
 
+<!-- 最后打成jar进行运行， 所以必须声明一个maven-plugin插件，但是父pom不需要声明该插件， 父pom只是用来管理其他的子pom -->
 	<build>
-		<finalName>${project.artifactId}</finalName><!--打jar包去掉版本号-->
+	<!-- finalName build目标文件的名称，默认情况为${artifactId}-${version} -->
+		<finalName>${project.artifactId}</finalName><!--此次我们打jar包去掉版本号-->
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
