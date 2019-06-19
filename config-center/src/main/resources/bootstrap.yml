@@ -10,7 +10,7 @@ spring:
 #          searchLocations: classpath:/configs/{profile}
 ##          searchLocations: file:/d:/configs/{profile}
         git:
-          uri: https://gitee.com/zhang.w/cloud-service-configs.git
+          uri: https://github.com/285917033/config.git
           username: 285917033@qq.com
           password: zghweb123
           default-label: master
