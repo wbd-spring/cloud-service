@@ -9,12 +9,12 @@ eureka:
       defaultZone: http://local.register.com:${server.port}/eureka/
     register-with-eureka: true   #注册中心服务自己也注册到注册中心去
     fetch-registry: false
-    registry-fetch-interval-seconds: 5
+    registry-fetch-interval-seconds: 25
   instance:
-    lease-expiration-duration-in-seconds: 15
-    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 35
+    lease-renewal-interval-in-seconds: 25
     prefer-ip-address: true  ##是用ip来注册到 注册中心
     instance-id: ${spring.application.name}:${server.port} #实例id 表现形式为：比如，注册中心=register-center:8761
   server:
     enable-self-preservation: false 
-    eviction-interval-timer-in-ms: 3000
+    eviction-interval-timer-in-ms: 6000

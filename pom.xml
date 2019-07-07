@@ -29,7 +29,7 @@
 		<docker.image.prefix>springboot</docker.image.prefix>
 	</properties>
 
-	<!-- 依赖管理， 对jar的版本管理， 子项目在引入jar时，可以不用声明对于版本， 在该父pom对版本进行了统一管理了 -->
+	<!-- 依赖管理， 对jar的依赖管理， 子项目在引入jar时，可以不用声明对应版本也不需要额外声明下面jar的依赖， 子项目自动集成了下面的所有依赖， 在该父pom对依赖进行了统一管理了 -->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -40,10 +40,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
+		
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
@@ -60,17 +57,17 @@
 		</dependency>
 	</dependencies>
 
-	<!-- 表示该父pom所依赖的jar，如果子项目集成该项目， 那么默认就会继承dependencyManagement 节点 所声明的对于jar 
+	<!-- 表示该父pom所依赖的jar版本管理，如果子项目集成该项目， 那么默认就会继承dependencyManagement 节点 所声明的对于jar版本管理，不是jar的依赖， 上面才是jar的依赖 
 	
 	dependencies即使在子项目中不写该依赖项，那么子项目仍然会从父项目中继承该依赖项（全部继承）
 
-       dependencyManagement里只是声明依赖，并不实现引入，因此子项目需要显示的声明需要用的依赖。如果不在子项目中声明依赖，是不会从父项目中继承下来的；只有在子项目中写了该依赖项，并且没有指定具体版本，才会从父项目中继承该项，并且version和scope都读取自父pom;另外如果子项目中指定了版本号，那么会使用子项目中指定的jar版本。
+       dependencyManagement里只是声明jar版本管理，并不实现引入，因此子项目需要显示的声明需要用的依赖。如果不在子项目中声明依赖，是不会从父项目中继承下来的；只有在子项目中写了该依赖项，并且没有指定具体版本，才会从父项目中继承该项，并且version和scope都读取自父pom;另外如果子项目中指定了版本号，那么会使用子项目中指定的jar版本。
 	
 	所以一般 用dependencyManagement與dependencies嵌套一起使用
 	-->
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
+			<dependency>  <!-- spring cloud对于所有的依赖，进行版本管理， 而不是jar管理， -->
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>${spring-cloud.version}</version>
@@ -94,5 +91,7 @@
 	<modules>
 		<module>register-center</module>
 		<module>config-center</module>
+		<module>user-center</module>
+		<module>api-model</module>
 	</modules>
 </project>

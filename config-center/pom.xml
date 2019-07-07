@@ -8,7 +8,7 @@
   <artifactId>config-center</artifactId>
   
   <dependencies>
-  <!-- 引入配置中心jar，对应不同的环境， 启用不同的配置文件 -->
+  <!-- 引入配置中心config-server.jar，对应不同的环境， 启用不同的配置文件, 客户端从配置中心服务器拉取配置， 所以客户端需要引入 config-client.jar -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-server</artifactId>
