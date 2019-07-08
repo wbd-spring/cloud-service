@@ -5,129 +5,130 @@ import java.util.Date;
 
 /**
  * 用戶
+ *psvm sout
  * @author zgh
- *
  */
 public class AppUser implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	
-	private Long id;
-	
-	private String username;
-	
-	private String password;
-	
-	private String nickname;
-	
-	private String headImgUrl;
-	
-	private String phone;
-	
-	private Integer sex;
-	
-	//状态
-	
-	private Boolean enable;
-	
-	private String type;
-	
-	private Date createTime;
-	
-	private Date updateTime;
 
-	public Long getId() {
-		return id;
-	}
+    private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private String username;
 
-	public String getUsername() {
-		return username;
-	}
+    private String password;
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    private String nickname;
 
-	public String getPassword() {
-		return password;
-	}
+    private String headImgUrl;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    private String phone;
 
-	public String getNickname() {
-		return nickname;
-	}
+    private Integer sex;
 
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
+    //状态
 
-	public String getHeadImgUrl() {
-		return headImgUrl;
-	}
+    private Boolean enable;
 
-	public void setHeadImgUrl(String headImgUrl) {
-		this.headImgUrl = headImgUrl;
-	}
+    private String type;
 
-	public String getPhone() {
-		return phone;
-	}
+    private Date createTime;
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    private Date updateTime;
 
-	public Integer getSex() {
-		return sex;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setSex(Integer sex) {
-		this.sex = sex;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Boolean getEnable() {
-		return enable;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setEnable(Boolean enable) {
-		this.enable = enable;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public String getNickname() {
+        return nickname;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 
-	public Date getUpdateTime() {
-		return updateTime;
-	}
+    public String getHeadImgUrl() {
+        return headImgUrl;
+    }
 
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
-	
-	
-	
+    public void setHeadImgUrl(String headImgUrl) {
+        this.headImgUrl = headImgUrl;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Integer getSex() {
+        return sex;
+    }
+
+    public void setSex(Integer sex) {
+        this.sex = sex;
+    }
+
+    public Boolean getEnable() {
+        return enable;
+    }
+
+    public void setEnable(Boolean enable) {
+        this.enable = enable;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+
+
+
 }

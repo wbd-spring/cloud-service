@@ -15,7 +15,7 @@ public interface AppUserDao {
 	 * @param id
 	 * @return
 	 */
-	@Select("select *　from app_user where id=#{id}")
+	@Select("select * from app_user where id = #{id}")
 	AppUser findById(Long id);
 	
 	/**

@@ -63,6 +63,6 @@ public class SysPermission implements Serializable {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
-	
-	
+
+
 }
