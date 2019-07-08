@@ -1,0 +1,29 @@
+logging:
+  level:
+    root: info  #root根级别为info级别 ，日志级别       
+    com.wbd: debug
+  file: logs/${spring.application.name}.log #日志文件的路径
+  
+spring:
+   datasource:
+     driver-class-name: com.mysql.jdbc.Driver
+     url: jdbc:mysql://localhost:3306/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+     username: root
+     password: 
+   rabbitmq:
+    host: local.rabbitmq.com
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+   mvc:
+    servlet:
+      load-on-startup: 1  #spring-mvc的配置， 表示系统启动的时候就加载springmvc的dispatchServlet
+   aop:
+    proxy-target-class: true  
+    
+mybatis:
+  type-aliases-package: com.wbd.cloud.model.user #表示该包下的类都启用别名， 多个包采用逗号隔开
+  mapper-locations: classpath:/mybatis-mappers/*
+  configuration:
+    map-underscore-to-camel-case: true

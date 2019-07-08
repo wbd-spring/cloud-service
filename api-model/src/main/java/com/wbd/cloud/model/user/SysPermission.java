@@ -1,13 +1,13 @@
-package com.cloud.model.user;
+package com.wbd.cloud.model.user;
 
 import java.io.Serializable;
 import java.util.Date;
 /**
- * 角色
+ * 权限
  * @author zgh
  *
  */
-public class SysRole implements Serializable {
+public class SysPermission implements Serializable {
 
 	/**
 	 * 
@@ -16,7 +16,7 @@ public class SysRole implements Serializable {
 
 	private Long id;
 	
-	private String code;
+	private String permission;
 	
 	private String name;
 	
@@ -32,12 +32,12 @@ public class SysRole implements Serializable {
 		this.id = id;
 	}
 
-	public String getCode() {
-		return code;
+	public String getPermission() {
+		return permission;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setPermission(String permission) {
+		this.permission = permission;
 	}
 
 	public String getName() {
@@ -63,5 +63,6 @@ public class SysRole implements Serializable {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
+	
 	
 }

@@ -1,4 +1,4 @@
-package com.cloud.model.user;
+package com.wbd.cloud.model.user;
 
 import java.io.Serializable;
 import java.util.Date;
