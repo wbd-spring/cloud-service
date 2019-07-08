@@ -16,6 +16,7 @@ public class UserController {
 	@GetMapping("/user/test")
 	public AppUser test() {
 	
+		System.out.println("abc");
 		return us.findById(1l);
 	}
 }
