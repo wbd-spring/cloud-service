@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * 用户中心
  * @author zgh
@@ -14,7 +17,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableEurekaClient
 @EnableFeignClients
 public class UserCenterApplication {
+
+
 	public static void main(String[] args) {
+
+
 		SpringApplication.run(UserCenterApplication.class, args);
 	}
 
