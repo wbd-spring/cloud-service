@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wbd.user.center.dao.RolePermission">
+	<select id="findPermissionsByRoleIds" resultType="SysPermission">
+		select p.* from
+		sys_permission p , sys_role_permission rp
+
+		<where>
+			p.id=rp.permissionId and rp.roleId in
+
+			<foreach collection="roleIds" item="roleId" open="("
+				separator="," close=")">
+				#{roleId}
+			</foreach>
+
+		</where>
+
+	</select>
+
+
+
+
+</mapper>
