@@ -1,5 +1,7 @@
 package com.wbd.cloud.model.user;
 
+import java.io.Serializable;
+
 /**
  *
  * 用户凭证表
@@ -8,7 +10,12 @@ package com.wbd.cloud.model.user;
  */
 public class UserCredential implements Serializable{
 
-    private String username;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String username;
 
     /**
      * 用户登录凭证类型
