@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wbd.user.center.dao.WechatDao">
-
+	<!-- update时set和if的用法 每个修改都加逗号 set能够智能的去掉最后一个逗号 -->
 	<update id="update">
 		update t_wechat
 		<set>

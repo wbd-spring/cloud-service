@@ -23,7 +23,7 @@
 	<select id="findData" resultType="AppUser">
 		select * from sys_permission r
 		<include refid="where" />
-		order by t.id desc
+		order by r.id desc
 		limit #{start},#{length}
 	</select>
 </mapper>

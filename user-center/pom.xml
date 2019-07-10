@@ -16,14 +16,20 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
-		<!-- 对应不同的环境， 启用不同的配置文件, 客户端从配置中心服务器拉取配置， 所以客户端需要引入 config-client.jar -->
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+			<!-- 对应不同的环境， 启用不同的配置文件, 客户端从配置中心服务器拉取配置， 所以客户端需要引入 config-client.jar -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<!-- oauth2已经包含了spring security -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-oauth2</artifactId>
 		</dependency>
 
 		<!-- spring boot和mysql的集成所依赖的jar -->
@@ -92,7 +98,12 @@
 		<dependency>
 			<groupId>com.wbd</groupId>
 			<artifactId>api-model</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.wbd</groupId>
+			<artifactId>commons</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 

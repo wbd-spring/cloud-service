@@ -19,7 +19,7 @@
 	<select id="findData" resultType="AppUser">
 		select * from sys_role r
 		<include refid="where" />
-		order by t.id desc
+		order by r.id desc
 		limit #{start},#{length}
 	</select>
 </mapper>

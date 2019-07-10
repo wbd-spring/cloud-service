@@ -19,7 +19,7 @@ public interface WechatDao {
 	 * @return
 	 */
 	@Options(useGeneratedKeys = true, keyProperty = "id")
-	@Insert("insert into t_wechat(openid,unionid,userId,app,nickname,sex,province,city,country,headimgurl,createTime,updateTime) values(#{openid},#{unionid},#{userId,#{app,#{nickname,#{sex},#{province},#{city},#{country},#{headimgurl},#{createTime},#{updateTime})")
+	@Insert("insert into t_wechat(openid,unionid,userId,app,nickname,sex,province,city,country,headimgurl,createTime,updateTime) values(#{openid},#{unionid},#{userId},#{app},#{nickname},#{sex},#{province},#{city},#{country},#{headimgurl},#{createTime},#{updateTime})")
 	int saveWechatUserInfo(WechatUserInfo wechatUserInfo);
 
 	/**
