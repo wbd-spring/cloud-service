@@ -2,6 +2,8 @@ package com.wbd.cloud.model.user;
 
 import java.io.Serializable;
 
+import com.wbd.cloud.model.user.constants.CredentialType;
+
 /**
  *
  * 用户凭证表
@@ -49,4 +51,6 @@ public class UserCredential implements Serializable{
     public void setUserId(Long userId) {
         this.userId = userId;
     }
+    
+  
 }
