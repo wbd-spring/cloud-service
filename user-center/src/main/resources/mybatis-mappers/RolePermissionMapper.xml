@@ -5,10 +5,8 @@
 	<select id="findPermissionsByRoleIds" resultType="SysPermission">
 		select p.* from
 		sys_permission p , sys_role_permission rp
-
 		<where>
 			p.id=rp.permissionId and rp.roleId in
-
 			<foreach collection="roleIds" item="roleId" open="("
 				separator="," close=")">
 				#{roleId}
