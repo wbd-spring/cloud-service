@@ -26,7 +26,7 @@ public interface UserRoleDao {
 	 * @param roleId
 	 * @return
 	 */
-	@Delete("delete from sys_role_user where userId=#{userId} and roleId=#{roleId}")
+	
 	int deleteUserRole(@Param("userId") Long userId, @Param("roleId") Long roleId);
 
 	@Insert("insert into sys_role_user(userId,roleId) values(#{userId},#{roleId})")

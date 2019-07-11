@@ -58,7 +58,7 @@ public interface SysRoleDao {
 	 * @param id
 	 * @return
 	 */
-	@Delete("delete from sys_role where id={id}")
+	@Delete("delete from sys_role where id=#{id}")
 	int delete(Long id);
 
 	/**

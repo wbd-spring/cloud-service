@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wbd.user.center.dao.RolePermission">
+<mapper namespace="com.wbd.user.center.dao.RolePermissionDao">
 	<select id="findPermissionsByRoleIds" resultType="SysPermission">
 		select p.* from
 		sys_permission p , sys_role_permission rp
@@ -16,6 +16,21 @@
 
 	</select>
 
+
+	<delete id="deleteRolePermission">
+		delete from sys_role_permission
+		<where>
+			<if test="roleId!=null">
+				roleId=#{roleId}
+			</if>
+
+			<if test="permissionId!=null">
+				and permissionId=#{permissionId}
+			</if>
+
+		</where>
+
+	</delete>
 
 
 

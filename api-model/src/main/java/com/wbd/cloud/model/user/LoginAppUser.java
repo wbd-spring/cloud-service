@@ -92,7 +92,7 @@ public class LoginAppUser extends AppUser implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 
-		return getEnable();
+		return getEnabled();
 	}
 
 }
