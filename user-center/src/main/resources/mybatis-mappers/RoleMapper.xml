@@ -20,6 +20,8 @@
 		select * from sys_role r
 		<include refid="where" />
 		order by r.id desc
-		limit #{start},#{length}
+	<if test="start != null and start >= 0 and length != null and length > 0">
+			limit #{start}, #{length}
+		</if>
 	</select>
 </mapper>

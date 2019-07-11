@@ -7,13 +7,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.apache.commons.collections.CollectionUtils;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import com.wbd.cloud.commons.utils.PageUtil;
 import com.wbd.cloud.commons.utils.PhoneUtil;
@@ -125,7 +126,7 @@ public class AppUserServiceImpl implements AppUserService {
 	public void updateAppUser(AppUser appUser) {
 
 		appUser.setUpdateTime(new Date());
-
+        appUser.setPassword(passwordEncoder.encode(appUser.getPassword()));
 		appUserDao.updateAppUser(appUser);
 
 	}
