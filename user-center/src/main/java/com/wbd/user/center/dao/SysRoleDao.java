@@ -31,7 +31,7 @@ public interface SysRoleDao {
 	 * @param sysRole
 	 * @return
 	 */
-	@Update("update sys_role r set r.name=#{name},r.updateTime=#{updateTime} where t.id=#{id}")
+	@Update("update sys_role r set r.name=#{name},r.updateTime=#{updateTime} where r.id=#{id}")
 	int updateSysRole(SysRole sysRole);
 
 	/**

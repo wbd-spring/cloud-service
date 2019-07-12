@@ -2,7 +2,6 @@ package com.wbd.user.center.dao;
 
 import java.util.Set;
 
-import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
