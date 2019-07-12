@@ -20,5 +20,17 @@ eureka:
     lease-renewal-interval-in-seconds: 50
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${random.int} #随机端口
-
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+      
+###
+# Spring Boot2.x中,默认只开放了info、health两个端点,
+#剩余的需要自己通过配置management.endpoints.web.exposure.include属性来加载
+#
+#
