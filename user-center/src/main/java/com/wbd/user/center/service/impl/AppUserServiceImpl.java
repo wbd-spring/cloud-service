@@ -198,6 +198,7 @@ public class AppUserServiceImpl implements AppUserService {
 		return urd.findRolesByUserId(userId);
 	}
 
+	@Transactional
 	@Override
 	public void bindingPhone(Long userId, String phone) {
 

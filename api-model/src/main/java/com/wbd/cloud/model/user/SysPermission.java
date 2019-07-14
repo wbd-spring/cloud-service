@@ -20,7 +20,7 @@ public class SysPermission implements Serializable {
 	
 	private String name;
 	
-	private Date creatTime;
+	private Date createTime;
 	
 	private Date updateTime;
 
@@ -48,12 +48,14 @@ public class SysPermission implements Serializable {
 		this.name = name;
 	}
 
-	public Date getCreatTime() {
-		return creatTime;
+	
+
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreatTime(Date creatTime) {
-		this.creatTime = creatTime;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 
 	public Date getUpdateTime() {

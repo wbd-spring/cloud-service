@@ -25,7 +25,7 @@ public interface SysPermissionDao {
 	@Insert("insert into sys_permission(permission,name,createTime,updateTime) values(#{permission},#{name},#{createTime},#{updateTime})")
 	int save(SysPermission sysPermission);
 	
-	@Update("update sys_permission set permission=#{permission},name=#{name},createTime=#{createTime},updateTime=#{updatTime} where id=#{id}")
+	@Update("update sys_permission set permission=#{permission},name=#{name},createTime=#{createTime},updateTime=#{updateTime} where id=#{id}")
     int update(SysPermission sysPermission);
 	
 	@Delete("delete from sys_permission where id=#{id}")
@@ -33,6 +33,9 @@ public interface SysPermissionDao {
 	
 	@Select("select * from sys_permission where id=#{id}")
 	SysPermission findById(Long id);
+	
+	@Select("select * from sys_permission where permission=#{permission}")
+	SysPermission findByPermission(String permission);
 	
 	int count(Map<String,Object> param);
 	
