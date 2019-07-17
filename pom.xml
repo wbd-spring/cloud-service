@@ -99,5 +99,6 @@
 		<module>user-center</module>
 		<module>api-model</module>
 		<module>commons</module>
+		<module>oauth-center</module>
 	</modules>
 </project>
