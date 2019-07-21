@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.wbd.cloud.model.user.LoginAppUser;
 import com.wbd.oauth.center.feign.UserClient;
 @Service("userDetailService")
 public class UserDetailServiceImpl implements UserDetailsService {
@@ -19,6 +20,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
+		LoginAppUser loginAppUser = userClient.findByUsername(username);
+		
 		return null;
 	}
 
