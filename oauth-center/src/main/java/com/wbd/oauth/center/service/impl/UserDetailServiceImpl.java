@@ -1,6 +1,8 @@
 package com.wbd.oauth.center.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
+import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,7 +25,15 @@ public class UserDetailServiceImpl implements UserDetailsService {
 		
 		LoginAppUser loginAppUser = userClient.findByUsername(username);
 		
-		return null;
+		if(loginAppUser==null) {
+			throw new AuthenticationCredentialsNotFoundException("用户名不存在");
+		}
+		
+		if(!loginAppUser.isEnabled()) {
+			throw new DisabledException("用户已经禁用");
+		}
+		
+		return loginAppUser;
 	}
 
 }
