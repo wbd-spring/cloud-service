@@ -22,7 +22,7 @@ import com.wbd.cloud.commons.constants.PermitAllUrl;
  * @author jwh
  *
  */
-@EnableWebSecurity
+@EnableWebSecurity //spring security 开启注解
 @EnableGlobalMethodSecurity(prePostEnabled = true) //prePostEnable=true开启方法类型的权限注解
 // @EnableGlobalMethodSecurity已经包含了@Configuration注解， 所以不用额外再添加该注解了
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsService;
 
-	// 注入密码加密器
+	// 注入密码解析器，在微服务 用户中心里面我们用的是这个密码器进行加密的， 所以我们在这里（认证中心）用他来解密
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
@@ -47,9 +47,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		//解密
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
 	}
 
+	
 	/**
 	 * 注入认证管理器
 	 * 

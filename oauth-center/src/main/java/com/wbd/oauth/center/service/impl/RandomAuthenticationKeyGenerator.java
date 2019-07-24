@@ -6,7 +6,7 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.AuthenticationKeyGenerator;
 /**
  * 解决同一username每次登陆access-token都相同的问题
- * 源代码在RedisTokenStore的getAccessToekn
+ * 源代码在RedisTokenStore的getAccessToken
  * @author jwh
  *
  */
