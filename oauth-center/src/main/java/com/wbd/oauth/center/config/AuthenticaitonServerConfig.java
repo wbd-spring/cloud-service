@@ -30,7 +30,7 @@ import com.wbd.oauth.center.service.impl.RandomAuthenticationKeyGenerator;
 
 /**
  * 授权/认证服务器 
- * 1.令牌存储方式，设置保存token机制，一共有5种， 比如内存，redis、数据库， 我们采用数据库存储方式
+ * 1.令牌存储方式，设置保存token机制， 比如内存，redis、数据库， 我们采用数据库存储方式
  * 2.客户端信息来源（一般从数据库， 或者redis，内存中，）
  * 
  * @author jwh
@@ -113,7 +113,7 @@ public class AuthenticaitonServerConfig extends AuthorizationServerConfigurerAda
 		endpoints.authenticationManager(authenticationManager);
 		// 配置端点的token存储方式
 		endpoints.tokenStore(tokenStore());
-		if (storeWithJwt) {
+		if (storeWithJwt) { //如果是jwt，就添加一转换器
 			endpoints.accessTokenConverter(accessTokenConverter());
 		}
 	}

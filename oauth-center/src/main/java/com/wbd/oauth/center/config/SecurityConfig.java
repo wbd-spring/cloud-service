@@ -15,9 +15,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.wbd.cloud.commons.constants.PermitAllUrl;
 
 /**
+ * 用户校验，当用户过来了之后，我们怎么去验证他的合法性
  * spring security 配置
  * 
- * 1.配置验证用户名与密码的方式 2.认证管理器 3.http安全 4.web资源过滤(可以不配置)
+ * 1.配置验证用户名与密码的方式 
+ * 2.认证管理器 
+ * 3.http安全 
+ * 4.web资源过滤(可以不配置)
  * 
  * @author jwh
  *
@@ -47,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		//解密
+		//passwordEncoder解密
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
 	}
 
@@ -68,7 +72,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().antMatchers(PermitAllUrl.permitAllUrl()).permitAll() // 放开权限的url
+		http.authorizeRequests().antMatchers(PermitAllUrl.permitAllUrl("/users-anon/**","/oauth/token")).permitAll() // 放开权限的url
 				.anyRequest().authenticated().and().httpBasic().and().csrf().disable();
 	}
 
