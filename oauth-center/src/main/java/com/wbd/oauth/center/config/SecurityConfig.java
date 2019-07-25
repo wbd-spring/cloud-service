@@ -42,8 +42,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private BCryptPasswordEncoder passwordEncoder;
 
 	/**
-	 * 全局用户信息
-	 * 
+	 * 验证用户名和密码
+	 *  验证用户名调用userDetailsService的loadUserByUsername，我们重写了该方法，该方法
+	 *  调用了用户中心的接口
+	 *  验证密码，采用系统的框架的底层jar进行验证，@see AbstractUserDetailsAuthenticationProvider.additionalAuthenticationChecks()的方法验证密码， 我们传入，密码解析器即可
 	 * 方法上的注解@Autowired的意思是，方法的参数值从spring容器中获取
 	 * 即参数AuthenticationManagerBuilder是spring中的一个bean
 	 * 
@@ -72,7 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().antMatchers(PermitAllUrl.permitAllUrl("/users-anon/**","/oauth/token")).permitAll() // 放开权限的url
+		http.authorizeRequests().antMatchers(PermitAllUrl.permitAllUrl()).permitAll() // 放开权限的url
 				.anyRequest().authenticated().and().httpBasic().and().csrf().disable();
 	}
 

@@ -17,14 +17,15 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	@Autowired
 	private UserClient userClient;
 	
-//	@Autowired
-//	private BCryptPasswordEncoder passwordEncoder;
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		LoginAppUser loginAppUser = userClient.findByUsername(username);
-		System.out.println(loginAppUser.getUsername()+"abc..........");
+	
 		if(loginAppUser==null) {
 			throw new AuthenticationCredentialsNotFoundException("用户名不存在");
 		}

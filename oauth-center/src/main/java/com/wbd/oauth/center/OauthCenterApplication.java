@@ -9,9 +9,15 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 public class OauthCenterApplication {
 	
+
 	public static void main(String[] args) {
 		
 	SpringApplication.run(OauthCenterApplication.class, args);
+	
+	
+	
 	}
+	
+	
 
 }

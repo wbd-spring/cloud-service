@@ -24,6 +24,7 @@ public class Oauth2Controller {
 	private TokenStore tokenStore;
 	
 	/**
+	 * 鉴权接口，
 	 * 获取用户信息
 	 * @param principal
 	 * @return
@@ -31,6 +32,7 @@ public class Oauth2Controller {
 	@GetMapping("/user-me")
 	public Principal principal(Principal principal) {
 		log.debug("user-me:{}",principal.getName());
+	
 		return principal;
 	}
 	

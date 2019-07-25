@@ -106,6 +106,10 @@ public class AppUserServiceImpl implements AppUserService {
 			throw new IllegalArgumentException("用户名已经存在，请重新输入");
 		}
 
+		
+		
+		
+		
 		// 设置密码
 		appUser.setPassword(passwordEncoder.encode(appUser.getPassword()));
 		// 默认添加的用户是可用状态
@@ -133,10 +137,11 @@ public class AppUserServiceImpl implements AppUserService {
 
 	@Override
 	public LoginAppUser findByUsername(String username) {
-
+		
+	
 		AppUser appUser = appUserDao.findByUsername(username);
 		if (appUser != null) {
-
+			
 			LoginAppUser loginAppUser = new LoginAppUser();
 
 			// beanutils进行属性值的拷贝

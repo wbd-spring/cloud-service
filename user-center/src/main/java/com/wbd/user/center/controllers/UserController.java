@@ -27,7 +27,15 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-
+/**
+ * 用户中心的所有接口(除了那些放开权限的接口外)先要调用 认证中心的 /user-me?access_token=x 接口， 来获取当前用户信息， 当前用户信息中存储了
+ * 用户对应的权限信息，然后用户中心接口请求时拿着 认证中心返回的access_token参数进行接口的请求
+ * 因为在认证中心的 资源服务器中就要求请求中必须带accee_token获取请求头 带Authorization BEARER_TYPE
+ * 
+ * 除了认证中心微服务， 其他的微服务的认证过程都需要来 认证中心进行鉴权，
+ * @author zgh
+ *
+ */
 @RestController
 @Api(tags = "User接口说明")
 @ApiResponses({ @ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 400, message = "客户请求错误"),
@@ -36,7 +44,10 @@ public class UserController {
 
 	@Autowired
 	private AppUserService us;
-
+   /**
+    * 该请求其实是请求认证中心的 http://localhost:8889/user-me 再带上返回的access_token
+    * @return
+    */
 	@ApiOperation(value = "获取当前登录用户的信息")
 	@GetMapping("/users/current")
 	public LoginAppUser getLoginAppUser() {
