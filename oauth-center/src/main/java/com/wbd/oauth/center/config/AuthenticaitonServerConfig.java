@@ -20,13 +20,13 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
-
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 import com.wbd.oauth.center.service.impl.RandomAuthenticationKeyGenerator;
+import com.wbd.oauth.center.service.impl.RedisClientDetailsService;
 
 /**
  * 授权/认证服务器 
@@ -53,9 +53,11 @@ public class AuthenticaitonServerConfig extends AuthorizationServerConfigurerAda
 	@Autowired
 	private RedisConnectionFactory redisConnectionFactory;
 
-	@Autowired
-	private DataSource dataSource;
 
+
+	@Autowired
+	private RedisClientDetailsService rcds;
+	
 	// access_tokean使用jwt或者redis,默认是false，采用redis方式， 不采用jwt方式
 	@Value("${access_token.store-jwt:false}")
 	private boolean storeWithJwt;
@@ -134,6 +136,9 @@ public class AuthenticaitonServerConfig extends AuthorizationServerConfigurerAda
 	//	clients.inMemory().withClient("system").secret(bCryptPasswordEncoder.encode("system"))
 //		.authorizedGrantTypes("password", "authorization_code", "refresh_token").scopes("app")
 //		.accessTokenValiditySeconds(3600);
-		clients.jdbc(dataSource);
+		//clients.jdbc(dataSource); 
+		//将 oauth_client_details的信息同步到redis中，我们自定义实现类，继承，改进
+		clients.withClientDetails(rcds);
+		rcds.loadAllClientToCache();
 	}
 }
