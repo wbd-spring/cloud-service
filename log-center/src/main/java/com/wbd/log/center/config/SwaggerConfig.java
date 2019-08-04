@@ -1,4 +1,4 @@
-package com.wbd.oauth.center.config;
+package com.wbd.log.center.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,21 +11,20 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * swagger文档配置
+ * swagger文档配置中心
  * 
  * @author zgh
  *
  */
 @Configuration
-@EnableSwagger2 // 开启swagger2文档注解
+@EnableSwagger2
 public class SwaggerConfig {
 
 	@Bean
 	public Docket docket() {
-
 		return new Docket(DocumentationType.SWAGGER_2)
-				.groupName("认证中心文档").apiInfo(new ApiInfoBuilder().title("认证中心文档")
-						.contact(new Contact("朱光和", "", "285917033@qq.com")).version("1.0").build())
+				.groupName("日志中心swagger接口文档").apiInfo(new ApiInfoBuilder().title("日志中心swagger接口文档")
+						.contact(new Contact("小住", "", "zghweb@163.com")).version("1.0").build())
 				.select().paths(PathSelectors.any()).build();
 	}
 }

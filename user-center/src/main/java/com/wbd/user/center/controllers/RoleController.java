@@ -50,7 +50,6 @@ public class RoleController {
 		if (StringUtils.isBlank(role.getName())) {
 			role.setName(role.getCode());
 		}
-
 		roleService.save(role);
 		return role;
 	}

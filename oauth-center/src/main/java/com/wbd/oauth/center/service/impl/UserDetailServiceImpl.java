@@ -33,7 +33,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
 		if(!loginAppUser.isEnabled()) {
 			throw new DisabledException("用户已经禁用");
 		}
-		
 		return loginAppUser;
 	}
 

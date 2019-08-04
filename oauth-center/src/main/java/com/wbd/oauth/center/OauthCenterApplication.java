@@ -14,8 +14,6 @@ public class OauthCenterApplication {
 		
 	SpringApplication.run(OauthCenterApplication.class, args);
 	
-	
-	
 	}
 	
 	

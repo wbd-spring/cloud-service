@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.wbd.log.starter.autoconfigure.LogAutoConfiguration,\
+com.wbd.log.starter.autoconfigure.LogAop

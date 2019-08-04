@@ -33,7 +33,6 @@ import io.swagger.annotations.ApiResponses;
 		@ApiResponse(code = 401, message = "未授权"), @ApiResponse(code = 500, message = "服务器异常"), })
 @RestController
 public class PermissionController {
-
 	@Autowired
 	private SysPermissionService sps;
 

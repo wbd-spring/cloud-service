@@ -14,7 +14,6 @@ public class RandomAuthenticationKeyGenerator implements AuthenticationKeyGenera
 
 	@Override
 	public String extractKey(OAuth2Authentication authentication) {
-		
 		return UUID.randomUUID().toString();
 	}
 

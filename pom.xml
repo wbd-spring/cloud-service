@@ -100,5 +100,7 @@
 		<module>api-model</module>
 		<module>commons</module>
 		<module>oauth-center</module>
+		<module>log-starter</module>
+		<module>log-center</module>
 	</modules>
 </project>

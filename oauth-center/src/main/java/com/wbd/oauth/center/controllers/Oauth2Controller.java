@@ -32,7 +32,6 @@ public class Oauth2Controller {
 	@GetMapping("/user-me")
 	public Principal principal(Principal principal) {
 		log.debug("user-me:{}",principal.getName());
-	
 		return principal;
 	}
 	

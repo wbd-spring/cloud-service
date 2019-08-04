@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: log-center
+  cloud:
+    config:
+      discovery:
+        enabled: true #开启spring cloud config client 客户端配置中心功能
+        service-id: config-center #配置中心在注册中心的 spring application name=config-center
+      profile: dev  #表示为开发环境， 这里可以配置多环境。
+  
+server:
+  port: 0 #端口号为0表示随机端口，为了配置中心HA，所以经常会把配置中心启动多个服务，避免单点故障问
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://local.register.com:8761/eureka/
+    registry-fetch-interval-seconds: 50
+  instance:
+    lease-expiration-duration-in-seconds: 60 
+    lease-renewal-interval-in-seconds: 50
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.int} #随机端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+      
+###
+# Spring Boot2.x中,默认只开放了info、health两个端点,
+#剩余的需要自己通过配置management.endpoints.web.exposure.include属性来加载
+#
+#

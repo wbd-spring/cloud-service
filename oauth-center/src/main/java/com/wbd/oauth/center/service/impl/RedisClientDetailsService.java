@@ -39,7 +39,6 @@ public class RedisClientDetailsService extends JdbcClientDetailsService {
 		super(dataSource);
 
 	}
-
 	@Override
 	public ClientDetails loadClientByClientId(String clientId) throws InvalidClientException {
 

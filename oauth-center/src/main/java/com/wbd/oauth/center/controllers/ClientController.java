@@ -162,7 +162,6 @@ public class ClientController {
 		}
 		boolean isSystem = SystemClientInfo.CLIENT_ID.equalsIgnoreCase(baseClientDetails.getClientId());
 		baseClientDetails.addAdditionalInformation("isSystem", isSystem);
-
 		return isSystem;
 	}
 }

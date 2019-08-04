@@ -71,7 +71,6 @@ public class UserController {
 	@ApiOperation(value = "根据用户id查询用户信息", notes = "查询用户信息")
 	@GetMapping(value = "/users/{id}")
 	public AppUser findAppUserById(@ApiParam(name = "id", value = "用户的唯一编号", required = true) @PathVariable Long id) {
-
 		return us.findById(id);
 	}
 
