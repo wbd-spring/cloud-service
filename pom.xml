@@ -102,5 +102,6 @@
 		<module>oauth-center</module>
 		<module>log-starter</module>
 		<module>log-center</module>
+		<module>gateway-zuul</module>
 	</modules>
 </project>
