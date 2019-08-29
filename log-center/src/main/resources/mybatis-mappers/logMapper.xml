@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wbd.log.dao.LogDao">
+
+
+	<sql id="where">
+
+		<where>
+
+			<if test="username !=null and username !=''">
+				<bind name="_username" value="'%' + username + '%'" />
+				and t.username like #_{username}
+			</if>
+
+			<if test="module !=null and module !=''">
+				<bind name="_module" value="'%' + module + '%'" />
+				and t.module like #{_module}
+			</if>
+
+			<if test="flag != null and flag != ''">
+
+				and t.flag = #{flag}
+
+			</if>
+
+
+			<if test="beginTime !=null and beginTime !=''">
+
+				and t.createTime &gt;=#{beginTime}
+			</if>
+
+			<if test="endTime !=null and endTime != ''">
+
+				and DATE(t.createTime) &lt;= #{endTime}
+
+			</if>
+
+			<!-- gt: greater than 大于 gte: greater than or equal 大于等于 lt: less than 
+				小于 lte: less than or equal 小于等于 -->
+		</where>
+
+	</sql>
+
+
+	<select id="count" resultType="int">
+
+		select count(1) from t_log t
+
+		<include refid="where" />
+	</select>
+
+
+	<select id="findData" resultType="Log">
+
+		select * from t_log t
+
+		<includ refid="where" />
+
+		order by t.id desc
+
+		limit #{start},#{length}
+
+	</select>
+
+</mapper>

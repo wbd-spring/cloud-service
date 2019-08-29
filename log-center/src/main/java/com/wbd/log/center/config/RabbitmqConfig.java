@@ -13,7 +13,7 @@ import com.wbd.cloud.model.log.constants.LogQueue;
  */
 @Configuration
 public class RabbitmqConfig {
-
+                    
 	/**
 	 * 声明队列
 	 */
